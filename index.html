@@ -9,59 +9,67 @@
 <body>
 
 <header>
-  <h1>Raheja Jewellers</h1>
+  <div class="logo">
+    <img src="images/logo.png" alt="Raheja Jewellers Logo">
+  </div>
   <nav>
     <a href="#home">Home</a>
-    <a href="#collections">Collections</a>
+    <a href="#catalogue">Catalogue</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section id="home" class="hero">
-  <h2>Where Tradition Meets Elegance</h2>
+  <h1>Where Tradition Meets Elegance</h1>
   <p>Premium gold and diamond jewellery crafted with trust and purity.</p>
-  <button id="exploreBtn">Explore Collections</button>
+  <button onclick="scrollToCatalogue()">Explore Collection</button>
 </section>
 
-<section id="collections">
-  <h2>Our Collections</h2>
-  <div class="cards">
-    <div class="card">Gold Jewellery</div>
-    <div class="card">Diamond Jewellery</div>
-    <div class="card">Silver jewellery</div>
+<section id="catalogue">
+  <h2>Our Jewellery Catalogue</h2>
+
+  <div class="catalogue-grid">
+    <div class="item">
+      <img src="images/catalogue/gold1.jpg" alt="Gold Jewellery">
+      <p>Gold Jewellery</p>
+    </div>
+
+    <div class="item">
+      <img src="images/catalogue/gold2.jpg" alt="Gold Jewellery">
+      <p>Traditional Gold</p>
+    </div>
+
+    <div class="item">
+      <img src="images/catalogue/diamond1.jpg" alt="Diamond Jewellery">
+      <p>Diamond Jewellery</p>
+    </div>
+
+    <div class="item">
+      <img src="images/catalogue/silver1.jpg" alt="silver Collection">
+      <p>Bridal Collection</p>
+    </div>
   </div>
 </section>
 
 <section id="about" class="light">
-  <h2>About Us</h2>
+  <h2>About Raheja Jewellers</h2>
   <p>
-    Raheja Jewellers is built on generations of trust, offering
-    certified jewellery with unmatched craftsmanship.
+    Raheja Jewellers stands for trust, purity, and fine craftsmanship.
+    We specialize in certified gold and diamond jewellery designed for
+    every special occasion.
   </p>
-</section>
-
-<section id="testimonials">
-  <h2>Customer Testimonials</h2>
-  <p id="testimonialText"></p>
 </section>
 
 <section id="contact" class="dark">
   <h2>Contact Us</h2>
-  <form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="email" id="email" placeholder="Your Email">
-    <textarea id="message" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-  <p id="formStatus"></p>
+  <p>📍 129 jawahar market , Sri Ganganagar , rajasthan</p>
+  <p>📞 +91 9460689962 </p>
+  <p>📧 raheja94606@gmail.com</p>
 </section>
-
-<button id="topBtn">↑</button>
 
 <footer>
   © 2026 Raheja Jewellers. All Rights Reserved.
-    Raheja94606@gmail.com
 </footer>
 
 <script src="script.js"></script>
