@@ -64,7 +64,9 @@ body {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 5px;
 }
 
 .brand-name {
@@ -225,6 +227,14 @@ section {
     letter-spacing: 2px;
 }
 
+.catalogue .section-title {
+    color: var(--navy-blue);
+}
+
+.catalogue .section-subtitle {
+    color: var(--text-dark);
+}
+
 .section-subtitle {
     text-align: center;
     color: var(--text-light);
@@ -251,11 +261,12 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 20px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-hover);
 }
 
 .product-image-wrapper {
@@ -270,11 +281,11 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .product-overlay {
@@ -330,6 +341,27 @@ section {
     color: var(--text-light);
     font-size: 15px;
     line-height: 1.6;
+}
+
+.mobile-view-button {
+    display: none;
+    background-color: var(--gold);
+    color: var(--navy-blue);
+    padding: 10px 25px;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Georgia', serif;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.mobile-view-button:active {
+    background-color: var(--dark-gold);
+    transform: scale(0.95);
 }
 
 /* About Section */
@@ -498,11 +530,11 @@ section {
     display: flex;
 }
 
-/* Scroll Reveal Animations */
+/* Scroll Reveal Animations - Reduced for better performance */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
 }
 
 .reveal.active {
@@ -522,6 +554,25 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Disable hover effects on mobile for better performance */
+    .product-card:hover {
+        transform: none;
+    }
+    
+    .product-card:hover .product-image {
+        transform: none;
+    }
+    
+    .product-overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    /* Show mobile view button */
+    .mobile-view-button {
+        display: inline-block;
+    }
+    
     .brand-name {
         font-size: 24px;
         letter-spacing: 1px;
