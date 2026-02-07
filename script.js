@@ -91,21 +91,60 @@ window.addEventListener('scroll', handleScroll);
 
 // Image Popup Functions
 function openImagePopup(imageSrc, imageTitle) {
+    console.log('Opening popup with image:', imageSrc);
+    
     const popup = document.getElementById('imagePopup');
     const popupImage = document.getElementById('popupImage');
     const popupTitle = document.getElementById('popupTitle');
+    const popupLoading = document.getElementById('popupLoading');
     
-    popupImage.src = imageSrc;
-    popupTitle.textContent = imageTitle;
+    // Show popup with loading state
     popup.classList.add('active');
+    popupLoading.style.display = 'flex';
+    popupImage.style.display = 'none';
+    popupTitle.textContent = imageTitle;
     
     // Prevent body scroll when popup is open
     document.body.style.overflow = 'hidden';
+    
+    // Clear previous image
+    popupImage.src = '';
+    
+    // Create new image to preload
+    const tempImg = new Image();
+    
+    tempImg.onload = function() {
+        console.log('Image loaded successfully:', imageSrc);
+        popupImage.src = imageSrc;
+        popupImage.alt = imageTitle;
+        popupLoading.style.display = 'none';
+        popupImage.style.display = 'block';
+    };
+    
+    tempImg.onerror = function() {
+        console.error('Failed to load image:', imageSrc);
+        popupLoading.innerHTML = '<p style="color: #ff6b6b;">Failed to load image. Please try again.</p>';
+        setTimeout(() => {
+            closeImagePopup();
+        }, 2000);
+    };
+    
+    // Start loading
+    tempImg.src = imageSrc;
 }
 
 function closeImagePopup() {
     const popup = document.getElementById('imagePopup');
+    const popupImage = document.getElementById('popupImage');
+    const popupLoading = document.getElementById('popupLoading');
+    
     popup.classList.remove('active');
+    
+    // Reset loading state
+    popupLoading.style.display = 'flex';
+    popupLoading.innerHTML = '<div class="spinner"></div><p>Loading image...</p>';
+    popupImage.style.display = 'none';
+    popupImage.src = '';
     
     // Re-enable body scroll
     document.body.style.overflow = 'auto';
