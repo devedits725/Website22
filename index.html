@@ -140,7 +140,11 @@
         <div class="popup-overlay" onclick="closeImagePopup()"></div>
         <div class="popup-content">
             <button class="popup-close" onclick="closeImagePopup()">&times;</button>
-            <img id="popupImage" src="" alt="">
+            <div class="popup-loading" id="popupLoading">
+                <div class="spinner"></div>
+                <p>Loading image...</p>
+            </div>
+            <img id="popupImage" src="" alt="" style="display: none;">
             <p id="popupTitle" class="popup-title"></p>
         </div>
     </div>
